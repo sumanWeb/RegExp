@@ -210,9 +210,20 @@
 			'a1b2c3d4'.replace(/([a-z]\d){3}/g,"X");
 			'Xd4'
 
-#### 或
+##### 或
 
 使用 | 可以达到或的效果
 - Byron | Casper	
-		
+- Byr(on|Ca)sper
+			- ByronCasper.replace(/Byron | Casper/g,'X');
+			-  "XX"
+			 -ByronsperByrCasper.repalce(/Byr(on|Ca)sper/g,"X");
+			 - "XX"	
+
+##### 反向引用
+- 2015-12-25 => 12/25/2015
+		-                                                成了一个变量 
+		-"2015-12-25".replace(/\d{4}-\d{2}-\d{2}/g,"$2$3$1");
+
+		-"2015-12-25".replace(/(\d{4})-(\d{2})-(\d{2})/g,"$2/$3/$1");
 [慕课网学习正则笔记](http://www.imooc.com/video/12528/0)
