@@ -293,6 +293,67 @@
 - 第一个元素是与正则表达式相匹配的文本
 - 第二个元素是RegExpObject 的第一个子表达相匹配的文本(如果有的话)
 - 第三个元素是RegExpObject 的第二个子表达相匹配的文本(如果有的话)
+		var reg3 = /\d(\w)\d/;
+		var reg4 = /\d(\w)\d/g;	
+		var ts = '1a2b3c45e';
+		var ret  = reg3.exec(ts);												\d(\w)\d,(\w)	 // 第一匹配结果的时候 
+		console.log(reg3.lastIndex + ' \t ' +ret.index + '\t' + ret.toString());  // "0  0    1a2 ,a "     // lastIndex 不生效
+		console.log(reg3.lastIndex + ' \t ' +ret.index + '\t' + ret.toString());  // "0  0    1a2 ,a "
+		
+		全局搜索的时候
+		vat ts="$1az2bb3cy4dd5ee"
+		while(ret = reg4.exec(ts)){
+		console.log(reg4.lastIndex + '\t' + ret.index +"\t" +ret.toString());	
+		}
+		'' 5  1   1az2,a,z";
+		'' 11 7  3cy4,c,y";
+		
+### String.prototype.search(reg);
+- search ( )方法用于检索 字符串 中制定的子字符串,或检索与正则 表达式相匹配的子字符串; 	
+- 方法返回第一个匹配结果**index** ,查不到 返回  -1;
+- search ( ) 方法不执行 全局匹配,它将忽略标志 g ,并且总是从字符串的开始进行检索
+				-	"a1b2c3d1".search("1");
+				-	1		  
+				-	"a1b2c3d1".search("10");
+				-	-1
+				-	"a1b2c3d1".search(/1/);
+				-	1
+				-	会尝试帮我们转成正则   (1)-->(/1/)
+### String.prototype.match(reg);
+				- match ( )方法将检索字符串,以找到一个或者多个与RegExp匹配的文本
+				- RegExp 是否具有标志 g 对 结果影响很大
+				- 如果RegExp没有标志g 那么 match( )方法 就只能在字符串 中执行 一次匹配
+				- 如果没有找到任何匹配的文本,将返回 null
+				- 否则 它将返回一个个数组,其中存放了与它找到的匹配文本有关的 信息;	
+				- 返回数组的第一个元素存放的是匹配文本, 而其余的元素存放的是与正则表达式的子表达式匹配的文本
+				- 除了常规的数组元素之外,返回的数据还含有2个对象属性;
+				-  index 声明匹配文本的起始字符在字符串的位置
+				-  input 声明	对 StringObject 的引用
+		
+		var reg3 = /\d(\w)\d/;
+		var reg4 = /\d(\w)\d/g;	
+		var ts = '$1a2b3c45e';
+		var ret  = ts.match(reg3);		
+		console.log(ret);   [ "1a2" , "a"];
+		console.log(ret.index + '\t' +reg3.lastIndex);	  "1    0"'	;  没管 	lastIndex						
+#### 全局调用
+- 如果 RegExp具有标志 g 则match ( ) 方法 将 执行 全局 检索找到 字符串中的所有匹配子字符串
+		- 如果没找到任何匹配的子串,则返回null
+		- 如果找到了 一个或者 多个匹配子串  , 则返回一个数组
+-  数组元素中存放的式字符串中所有的匹配子串，而没有 index 属性 或 input 属性	
+		var reg3 = /\d(\w)\d/;
+		var reg4 = /\d(\w)\d/g;	
+		var ts = '$1a2b3c45e';
+		var ret  = ts.match(reg4);		
+		console.log(ret);   [ "1a2" , "3c4"];   //没有分组信息了
+		console.log(ret.index + '\t' +reg3.lastIndex);	  "undefined    0"'	;  没管 	lastIndex
+##### String.prototype.split(reg);
+-  我们经常使用 split 方法 把字符串分割成字符数组
+-  'a,b,c,d'.split(','); //[ "a","b","c","d"]; 
+-  一些复杂的分割情况下我们可以使用正则表达式解决
+-  "a1b2c3d".split(/\d/); [ "a","b","c","d"];	
 
-				  
-[慕课网学习正则笔记](http://www.imooc.com/learn/706)
+
+##### String.prototype.replace(reg);
+
+[RegExp](http://www.imooc.com/learn/706)
