@@ -226,4 +226,73 @@
 		-"2015-12-25".replace(/\d{4}-\d{2}-\d{2}/g,"$2$3$1");
 
 		-"2015-12-25".replace(/(\d{4})-(\d{2})-(\d{2})/g,"$2/$3/$1");
-[慕课网学习正则笔记](http://www.imooc.com/video/12528/0)
+
+##### 忽略分组
+不希望捕获某些分组,只需要在分组内加上？: 就可以了
+> (?:Byron).(ok) ------------> "Byron"- any character- "ok"(group #1);
+
+
+##### 前瞻
+ 
+- 正则表达式从文本头部向尾部开始解析,文本尾部反向,成为'前'
+- 前瞻 就是在正则表达式匹配到规则的时候，向前检查时候符合断言,后顾/后瞻 方向相反
+- JavaScript 不支持后顾
+-  符合 和不符合特定断言称为 肯定/正向 匹配 和 否定/负向 匹配
+
+
+|名称|正则|含义|
+|-|-|-|
+|正向前瞻|exp(?=assert)||
+|负向前瞻|exp(?!assert)||
+|正向后顾|exp(?<=assert)|JavaScript不支持|
+|负向后顾|exp(?<=!assert)|javaScript不支持|
+
+
+
+>\w(?=\d)
+>'a2*3'.replace(/w(?=\d)/g,"X");
+>'X2*3'
+>'a2*34v8'.replace(/w(?=\d)/g,"X");
+>"X2*X4X8"
+>'a2*34vV'.replace(/w(?=\d)/g,"X");
+>X2*X4VV
+>'a2*34vV'.replace(/w(?!\d)/g,"X");
+>'aX*3XvV'
+
+
+
+
+
+##### 对象属性
+- global :是否全文搜索,默认是false;
+- ignore case :是否大小写敏感 默认是false;
+- multiline :多行搜索,默认是false	;
+- lastIndex:  是当前表达式	匹配内容的最后一个字符的下一个位置;
+- source ：正则表达式的文本字符串;
+
+###	RegExp.prototype.test(str);
+- 用于测试字符串参数中是否存在匹配正则表达式模式的字符串;
+- 如果存在则返回 true,否则 返回 false;
+
+###关于 lastIndex
+>var reg2=/\w/g;
+
+>while(reg2.test("ab")){
+>	console.log(reg2.last	)
+>		}
+>		当前匹配结果 第一次 a 最后下一个 就是b 就是2
+>		 
+###	RegExp.prototype.exec(str);
+- 使用正则表达式模式对字符串执行搜索,并将更新全局RegExp对象的属性以反映匹配结果 
+- 如果没有匹配的文本则返回null,否则返回一个结果数组;
+			-index声明匹配文本的第一个字符的位置
+			- input 存放被检索的字符串string
+
+###非全局调用
+- 调用非全局的RegExp 对象 exec ( )时,返回数组;
+- 第一个元素是与正则表达式相匹配的文本
+- 第二个元素是RegExpObject 的第一个子表达相匹配的文本(如果有的话)
+- 第三个元素是RegExpObject 的第二个子表达相匹配的文本(如果有的话)
+
+				  
+[慕课网学习正则笔记](http://www.imooc.com/learn/706)
