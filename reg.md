@@ -356,4 +356,72 @@
 
 ##### String.prototype.replace(reg);
 
+	'a1b'.replace("1",2);  "a2b"  =====>隐式转换为 'a1b'.replace( /1/,2);  "a2b" 
+
+	"a1b1c1".repalce("1",2)  "a2	b1c1"
+
+- **String.prototype.replace(str,replaceStr);**
+		
+		'a1b'.replace("1",2);  "a2b"
+
+		"a1b1c1".repalce("1",2);  "a2b1c1"
+- **String.prototype.replace(reg,replcaeStr);**
+		
+		"a1b1c1".repalce(/1/g,2); "a2b2c2"
+		
+		
+- **String.prototype.replace(reg,function);**
+
+
+**function**参数含义
+
+fucntion 会在每次匹配替换的时候调用,有四个参数;
+
+1.  匹配字符串
+2.  正则表达式分组内容,没有分组就没有改参数
+3.  匹配项在字符串中的index
+4.  原字符串
+
+			"a1b2c3d4e5".replace(/\d/g,function(match,index,orgin){
+ 							 console.log(match)
+  							console.log(index);
+  						return parseInt(match) +1;
+ 				});
+				"1"
+				 1
+				"2"
+				3
+				"3"
+				5
+				"4"
+			7
+			"5"
+			9
+			"a2b3c4d5e6"
+
+
+
+			"a1b2c3d4e5".replace(/(\d)(\w)(\d)/g,function(match,g1,g2,g3,index,orgin){
+			  console.log(match)
+			  console.log(g1);
+			   console.log(g2);
+			
+			  console.log(index);
+			  return g1+g3;
+			 	});
+			"1b2"
+			"1"
+			"b"
+			1
+			"3d4"
+			"3"
+			"d"
+			5
+			"a12c34e5"
+
+
+
+
+[在线JavaScript](http://jsbin.com)
 [RegExp](http://www.imooc.com/learn/706)
+[regexper](https://regexper.com/)
