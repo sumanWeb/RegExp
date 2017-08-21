@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        
+    /*     // 没有匹配为null
+        index 字符位置
+        input srting
+        // 非全局调用 */
+
+        var reg3 = /\d(\w)(\w)\d/;
+        var reg4 = /\d(\w)(\w)\d/g;
+        var ts = '$1az2bb3cy4dd5ee';
+        var ret = reg3.exec(ts);
+        // /* 非全局 lastindex  不生效 */
+        // console.log(reg3.lastIndex +'\t'+ret.index+'\t'+ret.toString());
+        // console.log(reg3.lastIndex +'\t'+ret.index+'\t'+ret.toString());
+        // // 第一个匹配 第二个 分组
+        // console.log(ret);
+        
+        while(ret =reg4.exec(ts)){
+            /* lastIndex生效 */
+            console.log(reg4.lastIndex +'\t'+ret.index+'\t'+ret.toString());
+            console.log(ret);
+        }
+
+    </script>
+</body>
+</html>

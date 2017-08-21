@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    /* 原义文本字符 */
+    /* 元字符 特殊字符  */     
+    //    .*+?^|\(){}[] 特殊含义
+        // 字符类
+        // ab\t ab+tab
+        // 简单类[abc]a或者b或者c
+        var a= 'a1b2c3d4'.replace(/[abc]/g,'x');
+        console.log(a);
+        // 取反^
+        var a= 'a1b2c3d4'.replace(/[^abc]/g,'x');
+        console.log(a);
+
+//范围 [a-z]
+
+
+
+var a='a1v2d3x4g5'.replace(/[a-z]/g,"9");
+        console.log(a);
+
+var a='a1v2dXXXXSDSADF3x4g5'.replace(/[a-zA-Z]/g,"9");
+console.log(a);
+
+var a ='2016-09-12'.replace(/[0-9]/g,'a');
+console.log(a);
+
+var a ='2016-09-12'.replace(/[0-9-]/g,'a')
+console.log(a);
+
+var a ='2016-09-12'.replace(/[0-9]-/g,'a')
+console.log(a);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+   // <!-- 非全局只执行一次 -->
+        var reg3 = /\d(\w)\d/;
+        var reg4 = /\d(\w)\d/g;
+        var ts = '$1a2b3c4d5e';
+        var ret = ts.match(reg3);
+    
+        // console.log(ret);
+        // // lastIndex 没有用
+        // console.log(ret.index +'\t' +reg3.lastIndex);
+        
+
+
+        ret = ts.match(reg4);
+        console.log(ret);
+        console.log(ret.index+'\t'+reg4.lastIndex);
+</script>
+
+</body>
+</html>

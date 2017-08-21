@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var reg=/\d{3,5}/g; //贪婪模式
+
+        var a =12345678;
+        a.replacle(reg,'x');
+        var reg=/\d{3,5}?/g; //非贪婪模式  加上?
+      var a =  '123456789'.match(/\d{3,5}?/g);//["123","456",'789'];
+      var a ='12345678'.replace(/\d{3,5}?/g,'x');//xx78
+      console.log(a);  
+    </script>
+</body>
+</html>

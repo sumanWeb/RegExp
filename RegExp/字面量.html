@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 单词边界 g 全局 */
+        var reg =/\bis\b/;
+        var reg1 =/\bis\b/g;
+
+       var a = 'He is a boy. This is a dog .where is She'.replace(reg,'IS'); //只替换了第一个
+
+        console.log(a);
+
+        var reg = new RegExp('\\bis\\b');
+
+        var reg = new RegExp('\\bis\\b',"g");
+        
+    </script>
+</body>
+</html>

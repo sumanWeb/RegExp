@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分组</title>
+</head>
+<body>
+    
+<script>
+
+    var reg = /(Byron){3}/;  //分组
+    var a= 'a1b2c3d4'.replace(/[a-z]\d{3}/g);
+    console.log(a);
+    var a= 'a1b2c3d4'.replace(/([a-z]\d){3}/g);//xd4
+    console.log(a);
+
+    var reg =  /Byroon|Casperg/g;
+    var a ='ByroonCasper'.replace(reg,x)
+    console.log(a);
+    var reg =  /Byro(on|Ca)sper/g;
+    var a ='Byroonsper'.replace(reg,x);
+    console.log(a);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
